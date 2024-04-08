@@ -7,6 +7,25 @@
 */
 
 function isPalindrome(str) {
+  str = str.toLowerCase();
+
+  let end = str.length - 1; // Adjusted to point to the last index
+
+  // Check if the length of the string is odd
+  if (str.length % 2 !== 0) {
+    for (let i = 0; i < str.length / 2; i++) {
+      if (str[i] !== str[end - i]) {
+        return false;
+      }
+    }
+  } else {
+    // For even-length palindromes
+    for (let i = 0; i < str.length / 2; i++) {
+      if (str[i] !== str[end - i]) {
+        return false;
+      }
+    }
+  }
   return true;
 }
 

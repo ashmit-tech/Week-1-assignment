@@ -8,7 +8,26 @@
 */
 
 function isAnagram(str1, str2) {
+  //cheking lenght matching
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  const charCount = {};
 
+  //inserting all elements in object
+  for (const char of str1) {
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+  console.log(charCount);
+  //checking string2
+  for (const char of str2) {
+    if (!charCount[char]) {
+      return false;
+    }
+    charCount[char]--;
+  }
+  console.log(charCount);
+  return Object.values(charCount).every((count) => count === 0);
 }
 
 module.exports = isAnagram;
